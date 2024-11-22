@@ -6,40 +6,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center'
     },
-    header: {
-        flex: 1,
-        width: '100%',
-        borderBottomWidth: 2,
-        borderBottomColor: 'black',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        flexDirection: 'row'
-    },
-    title: {
-        fontSize: 30,
-        fontWeight: 600,
-        marginLeft: 20,
-    },
-    hours:{
-        fontSize: 20,
-        marginLeft: 20,
-    },
-    addNote: {
-        height: 60,
-        width: 60,
-        backgroundColor: '#006400',
-        borderRadius: 60,
-        marginRight: 20,
-        marginBottom: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    plus:{
-        fontSize: 60,
-        lineHeight: 60,
-        textAlignVertical: 'center',
-        color: 'white'
-    },
     main: {
         flex: 5,
         padding: 10

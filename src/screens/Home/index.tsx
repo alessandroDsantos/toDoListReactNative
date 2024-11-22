@@ -2,7 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState, useRef } from 'react';
 import { Text, TextInput, TouchableOpacity, View, FlatList, Alert, Modal} from 'react-native';
 
-import { styles } from './styles' 
+
+import { styles } from './styles'; 
+
+import { Header } from '../../components/Header';
 
 interface Note { 
   id: number; 
@@ -11,9 +14,6 @@ interface Note {
 }
 
 export function Home() {
-
-  const [today, setToday] = useState(new Date());
-  
   const [infoCard, setInfoCard] = useState<Note[]>([]);
   const [identifier, setIdentifier] = useState<number>(0);
   const [inputText, setInputText] = useState<string>('');
@@ -27,24 +27,6 @@ export function Home() {
   
   const [infoCardClone, setInfoCardClone] = useState<Note[]>([]);
   const [listDone, setListDone] = useState<Note[]>([]);
-
-  //info data de hoje
-  const month = [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-
-  const dateFormat = `${today.getDate()} de ${month[today.getMonth()]} de ${today.getFullYear()}`;
-
-  useEffect(() => {
-    const checkDate = () => {
-      const now = new Date();
-      if(now.getDate() !== today.getDate()){
-        setToday(now);
-      }
-    }
-
-    const interval = setInterval(checkDate, 60000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   //Código para adicionar e remover notas
   function addNote(){
@@ -77,6 +59,8 @@ export function Home() {
     // prevInfoCardLength.current = infoCard.length
   }, [infoCard]);
 
+  
+
 
   function check(item: Note, option: boolean){
     if(option){
@@ -93,18 +77,7 @@ export function Home() {
 
       <StatusBar style="auto" />
 
-      <View style={styles.header}>
-
-        <View>
-          <Text style={styles.title}>To Do List</Text>
-          <Text style={styles.hours}>{dateFormat}</Text>
-        </View>
-
-        <TouchableOpacity style={styles.addNote} onPress={addNote}>
-          <Text style={styles.plus}>+</Text>
-        </TouchableOpacity>
-
-      </View>
+      <Header addPress={addNote}/>
 
       <View style={styles.main}>
 
