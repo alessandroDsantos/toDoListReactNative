@@ -7,11 +7,12 @@ import { useGetDateToday } from '../../hooks/useGetDateToday'
 
 import { styles } from './styles';
 
-type props = {
-    addPress: () => void,
-}
+// type props = {
+//     addPress: () => void,
+// }
 
-export const Header: React.FC<props> = ({ addPress }) => {
+// export const Header: React.FC<props> = ({ addPress }) => {
+export const Header: React.FC = () => {
 
     const {dateFormat} = useGetDateToday(new Date());
 
@@ -23,7 +24,7 @@ export const Header: React.FC<props> = ({ addPress }) => {
                 <Text style={styles.hours}>{dateFormat}</Text>
             </View>
 
-            <ButtonAddCard addButtonPress={addPress}/>
+            <ButtonAddCard/>
 
         </View>
     );
